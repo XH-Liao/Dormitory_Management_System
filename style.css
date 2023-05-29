@@ -1,0 +1,39 @@
+h1, h2, .row-cols-md-4, .modal-title, .card-header>h4 {
+    color: #5275e0;
+}
+
+th, td {
+    word-break: keep-all;word-wrap:break-word;
+    /*text-align: center;*/
+}
+
+#main_td{
+    white-space: nowrap;
+}
+
+#center{
+    text-align: center;
+}
+.navbar-nav .dropdown-menu {
+    position: absolute;
+}
+
+#money, ::placeholder, #h1_center{
+    text-align: center;
+}
+.bi-trash3{
+    color: red;
+}
+
+#without_underline{
+    text-decoration:none;
+}
+/*
+.nav-link {
+    color: #99ff99;
+}
+
+.nav-link:hover {
+    background-color: #ffff4d;
+}
+*/

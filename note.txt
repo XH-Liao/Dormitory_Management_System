@@ -1,0 +1,20 @@
+DB 公告table 新增欄位 "標題"
+DB 違規table primary key改為所有(3個)欄位 、UNIQUE(違規內容)刪除
+DB 留言table 新增欄位 "標題"、"回復時間"、"回復內容"
+
+更新：
+1. 1/3 message_reply_confirm.php 更新 第30行 (&&的前後順序交換)
+2. 1/3 header連結刪除"違規登記"
+3. 1/3 新增密碼修改功能 (尚未強制執行)
+4. 1/3 新增"個人資料"(僅前端) 更改header
+5. 1/3 修改assign_room_manual：//失敗 => 回到上一頁；//成功 => 前往宿舍房間成員頁面
+6. ___
+7. 1/4 更改header (圖示、依權限顯示)、密碼hash、必須更改密碼、admin專屬功能：系統管理員[列表、修改、刪除]
+8. 1/4 更改header(RWD導覽列排版[order])、刪除錯誤訊息，如果刪除0列，顯示錯誤，無此資料(
+    A. 學生 stu_list_delete
+    B. 管理員 admin_delete_confirm
+    C. 留言 message_delete_confirm
+    D. 違規紀錄 violate_delete_confirm)
+    E. 公告 announce_delete)
+9. 1/5 更改table，可sort、更改stu_list新增按鈕顯示所有申請、違規列表
+10. 1/6 交換房號的兩者不可相同、兩者的房號不可相同
