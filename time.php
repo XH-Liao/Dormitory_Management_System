@@ -1,4 +1,8 @@
 <?php
+$year = 111;
+$month = 1;
+$semester = 1; 
+/*
 $year = date('Y') - 1911;
 $month = date('n');
 if($month <= 8)
@@ -12,4 +16,5 @@ else if($month == 2)
     $semester = 3;                      //寒假(3)：2月
 else
     $semester = 4;                      //暑假(4)：7~8月
+    */
 ?>
