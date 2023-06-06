@@ -3,7 +3,7 @@
 //Check：若已登入，跳轉回首頁
 session_start();
 if(isset($_SESSION['login_identity'])){
-    header('Location: /DB_FinalProject');
+    header('Location: /SE_FinalProject');
     exit();
 }
 
