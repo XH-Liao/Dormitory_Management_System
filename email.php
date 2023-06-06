@@ -18,7 +18,7 @@ try {
     $mail->Host       = 'smtp.gmail.com';                                   //Set the SMTP server to send through
     $mail->SMTPAuth   = true;                                               //Enable SMTP authentication
     $mail->Username   = 'PHPmailNUK@gmail.com';                             //SMTP username
-    $mail->Password   = 'gidzezvdzebqclac';                                 //SMTP password
+    $mail->Password   = 'hdaxadveqccfilxf';                                 //SMTP password
     //$mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;                      //Enable implicit TLS encryption
     $mail->Port       = 465;
     $mail->SMTPSecure = "ssl";                                              //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
@@ -37,7 +37,8 @@ try {
         "高雄市楠梓區高雄大學路700號<br>" .
         "Tel：(07)5919000<br>" .
         "Fax：(07)5919083<br>" .
-        "<br><br><br><br><br><font color='blue'>此信件僅為測試訊息！</font>";
+        "Email：sec@nuk.edu.tw".
+        "<br><br><br><br><br><font color='yellow'>此信件僅為測試訊息！</font>";
 
     // SQL 查詢所有未繳費的名單 (姓名、Email)
     $SQL = "SELECT 姓名, Email
