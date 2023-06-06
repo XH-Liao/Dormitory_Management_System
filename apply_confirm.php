@@ -17,7 +17,7 @@ $result = mysqli_query($link, $SQL);
 $row = mysqli_fetch_assoc($result);
 if ($row["Email"] == NULL) {
     echo "<script type='text/javascript'>alert('提示：請先填寫Email！ \n以便後續發送宿舍通知！')</script>";
-    echo "<meta http-equiv='Refresh'; content='0; url=alter_admin_profile'/>";
+    echo "<meta http-equiv='Refresh'; content='0; url=alter_profile'/>";
 } else {
     //將申請資料，新增至資料表
     $uAccount = $_SESSION['login_account'];
