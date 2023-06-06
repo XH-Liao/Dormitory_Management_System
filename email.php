@@ -57,6 +57,7 @@ try {
         $mail->Body    = $message;
 
         $mail->send();
+        $mail->clearAddresses();
     }
 
     echo "<script type='text/javascript'>alert('提示：催繳Email寄送成功!')</script>";
