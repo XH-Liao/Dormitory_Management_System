@@ -89,10 +89,7 @@ $result = mysqli_query($link, $SQL);
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
-                <button type="button" class="btn btn-primary" data-bs-toggle='modal' data-bs-target='#wait_modal'>
-                    <a href="email.php" style="text-decoration: none; color:white;">確認</a>
-                </button>
-
+                <button type="button" class="btn btn-primary" data-bs-toggle='modal' data-bs-target='#wait_modal' onclick="location.href='email.php';">確認</button>
             </div>
         </div>
     </div>
