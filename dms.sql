@@ -4,6 +4,7 @@
 --
 -- 主機： 127.0.0.1
 -- 產生時間： 2023-06-07 08:19:19
+
 -- 伺服器版本： 10.4.27-MariaDB
 -- PHP 版本： 8.0.25
 
@@ -97,6 +98,7 @@ INSERT INTO `學生` (`學號`, `姓名`, `Email`, `連絡電話`, `性別`, `�
 ('a1095518', 'A18', 'a1095527@mail.nuk.edu.tw', '', '女', '2000-01-18', '$2y$10$9T1HMoFq7h.CFDOk8qFUG.rC6Cs7p5FLoQgSBZ.n1GHMdrItutXym', NULL, NULL, NULL, 'A10955'),
 ('a1095519', 'A19', 'a1095527@mail.nuk.edu.tw', '', '女', '2000-01-19', '$2y$10$0ah1M8A.nkuqSJVB4M4mluSi4FKwFfuwDsBA1XUEd9wDVp21wzvA2', NULL, NULL, NULL, 'A10955'),
 ('a1095520', 'A20', 'a1095527@mail.nuk.edu.tw', '', '女', '2000-01-20', '$2y$10$csZBw4bxOBl3/3BNASGaqOyRVIomghWCTclNTNVWrQtOPvsjSzAz.', NULL, NULL, NULL, 'A10955');
+
 
 -- --------------------------------------------------------
 
@@ -454,6 +456,7 @@ ALTER TABLE `違規紀錄`
 --
 ALTER TABLE `入住申請`
   MODIFY `申請編號` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=381;
+
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `留言`
