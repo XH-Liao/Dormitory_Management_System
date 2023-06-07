@@ -30,7 +30,7 @@ try {
     // 設定信件模板內容
     $content = "同學：<br>" .
         " 同學您好，目前尚未收到您的宿舍費用，請在<font color='red'>7日內</font>繳納費用！<br>" .
-        " 若未在規定期限內繳費，將依宿舍規定第5條規範，予以<font color='red'>退宿</font><br><br><br>" .
+        " 若未在規定期限內繳費，將依宿舍規定第5條規範，予以<font color='red'>退宿</font>！<br><br><br>" .
         "-----------------------------------------------------------------------<br>" .
         "宿舍管理員 DMS manager<br>" .
         "國立高雄大學 | National University of Kaohsiung<br>" .
