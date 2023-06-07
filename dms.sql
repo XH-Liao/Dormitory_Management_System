@@ -3,7 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2023-06-01 14:10:39
+-- 產生時間： 2023-06-07 08:19:19
+
 -- 伺服器版本： 10.4.27-MariaDB
 -- PHP 版本： 8.0.25
 
@@ -79,24 +80,25 @@ CREATE TABLE `學生` (
 --
 
 INSERT INTO `學生` (`學號`, `姓名`, `Email`, `連絡電話`, `性別`, `生日`, `密碼`, `房間號碼`, `宿舍編號`, `舍監編號`, `班級編號`) VALUES
-('a1095502', 'A2', '', '', '男', '2000-01-02', '$2y$10$fWxQNOP7A6DGdIcv81D92OKcOme.c3N4AB7LdTFwKq8lVLOjBxR6m', 1, 'OE', 2, 'A10955'),
-('a1095503', 'A3', '', '', '男', '2000-01-03', '$2y$10$K7cfHFucnqQd5c1kqg6g5.kt.w4WLT/0VGoNmlpBU1m9jvBKWMV/u', 1, 'OE', NULL, 'A10955'),
-('a1095504', 'A4', '', '', '男', '2000-01-04', '$2y$10$g72jungmjAvO9zvkcpSJRO3Gm5Im4s2nWxXL7jdgLnmEP6ggsTnli', NULL, NULL, NULL, 'A10955'),
-('a1095505', 'A5', '', '', '男', '2000-01-05', '$2y$10$.QG.nrsnGqnNukqPA2c3gux20Iflz6ReQgvj6Zb0S2ZmfMLSeNC1O', NULL, NULL, NULL, 'A10955'),
-('a1095506', 'A6', '', '', '男', '2000-01-06', '$2y$10$rT3ZTdSpsP4TuedeBvxYLeb5oLysezvX0USEfrS5vCAN14rwGK8Dm', NULL, NULL, NULL, 'A10955'),
-('a1095507', 'A7', '', '', '男', '2000-01-07', '$2y$10$KHvBv1CEcpwJk3YR.i7bIOKEkZO3Bh4PO7FHTwH2V.9/4UVh86P/S', NULL, NULL, NULL, 'A10955'),
-('a1095508', 'A8', '', '', '男', '2000-01-08', '$2y$10$9/PM1i0lgUVMa9Ble2CNNulOTNaKFdQpX6FFAY0xDIxddjWQW7xo2', NULL, NULL, NULL, 'A10955'),
-('a1095509', 'A9', '', '', '男', '2000-01-09', '$2y$10$wEbvoaosmotsazDtWoogteqt/ziaPGWyrPKDnGfl4wH0523.EEDdO', NULL, NULL, NULL, 'A10955'),
-('a1095510', 'A10', '', '', '男', '2000-01-10', '$2y$10$E9Vi8ZAlwwnGauSdJsEGiuz32KdYKDkIjGhjcnD8gJ0ennh2lJSte', NULL, NULL, NULL, 'A10955'),
-('a1095512', 'A12', '', '', '女', '2000-01-12', '$2y$10$2wAcolBMeesjmNACLGHaZ.iOgnk8oRCvd.7n4hGOEoGRE.sHMTxz2', 1, 'OF', 12, 'A10955'),
-('a1095513', 'A13', '', '', '女', '2000-01-13', '$2y$10$00.e9EAlxEEUHwqWz/um2eHmvRihtTD3cZuTU2t0meJ6SP4801rg2', 1, 'OF', NULL, 'A10955'),
-('a1095514', 'A14', '', '', '女', '2000-01-14', '$2y$10$VojuW.3Nset3BhrjMD7fROpdwkRMbEipSVfz0HIz0pLOeGdwRWojC', NULL, NULL, NULL, 'A10955'),
-('a1095515', 'A15', '', '', '女', '2000-01-15', '$2y$10$VKmlTsieVNJ6eCL03N2NCOO50Te7pOQWZM9FIugqI6D92X74GpVUa', NULL, NULL, NULL, 'A10955'),
-('a1095516', 'A16', '', '', '女', '2000-01-16', '$2y$10$p5Hom10KmfIaFJkfOSh2ku52smUfDe.7gKoR7PsnBvXFLoc1MtG0e', NULL, NULL, NULL, 'A10955'),
-('a1095517', 'A17', '', '', '女', '2000-01-17', '$2y$10$BORNbb8AiH8sSHtSU4ToTeq975RdvrBWu44tqRq9CH17xgqRtYVdS', NULL, NULL, NULL, 'A10955'),
-('a1095518', 'A18', '', '', '女', '2000-01-18', '$2y$10$9T1HMoFq7h.CFDOk8qFUG.rC6Cs7p5FLoQgSBZ.n1GHMdrItutXym', NULL, NULL, NULL, 'A10955'),
-('a1095519', 'A19', '', '', '女', '2000-01-19', '$2y$10$0ah1M8A.nkuqSJVB4M4mluSi4FKwFfuwDsBA1XUEd9wDVp21wzvA2', NULL, NULL, NULL, 'A10955'),
-('a1095520', 'A20', '', '', '女', '2000-01-20', '$2y$10$csZBw4bxOBl3/3BNASGaqOyRVIomghWCTclNTNVWrQtOPvsjSzAz.', NULL, NULL, NULL, 'A10955');
+('a1095502', 'A2', 'a1095527@mail.nuk.edu.tw', '', '男', '2000-01-02', '$2y$10$fWxQNOP7A6DGdIcv81D92OKcOme.c3N4AB7LdTFwKq8lVLOjBxR6m', 1, 'OE', 2, 'A10955'),
+('a1095503', 'A3', 'a1095527@mail.nuk.edu.tw', '', '男', '2000-01-03', '$2y$10$K7cfHFucnqQd5c1kqg6g5.kt.w4WLT/0VGoNmlpBU1m9jvBKWMV/u', 1, 'OE', NULL, 'A10955'),
+('a1095504', 'A4', 'a1095527@mail.nuk.edu.tw', '', '男', '2000-01-04', '$2y$10$g72jungmjAvO9zvkcpSJRO3Gm5Im4s2nWxXL7jdgLnmEP6ggsTnli', NULL, NULL, NULL, 'A10955'),
+('a1095505', 'A5', 'a1095527@mail.nuk.edu.tw', '', '男', '2000-01-05', '$2y$10$.QG.nrsnGqnNukqPA2c3gux20Iflz6ReQgvj6Zb0S2ZmfMLSeNC1O', NULL, NULL, NULL, 'A10955'),
+('a1095506', 'A6', 'a1095527@mail.nuk.edu.tw', '', '男', '2000-01-06', '$2y$10$rT3ZTdSpsP4TuedeBvxYLeb5oLysezvX0USEfrS5vCAN14rwGK8Dm', NULL, NULL, NULL, 'A10955'),
+('a1095507', 'A7', 'a1095527@mail.nuk.edu.tw', '', '男', '2000-01-07', '$2y$10$KHvBv1CEcpwJk3YR.i7bIOKEkZO3Bh4PO7FHTwH2V.9/4UVh86P/S', NULL, NULL, NULL, 'A10955'),
+('a1095508', 'A8', 'a1095527@mail.nuk.edu.tw', '', '男', '2000-01-08', '$2y$10$9/PM1i0lgUVMa9Ble2CNNulOTNaKFdQpX6FFAY0xDIxddjWQW7xo2', NULL, NULL, NULL, 'A10955'),
+('a1095509', 'A9', 'a1095527@mail.nuk.edu.tw', '', '男', '2000-01-09', '$2y$10$wEbvoaosmotsazDtWoogteqt/ziaPGWyrPKDnGfl4wH0523.EEDdO', NULL, NULL, NULL, 'A10955'),
+('a1095510', 'A10', 'a1095527@mail.nuk.edu.tw', '', '男', '2000-01-10', '$2y$10$E9Vi8ZAlwwnGauSdJsEGiuz32KdYKDkIjGhjcnD8gJ0ennh2lJSte', NULL, NULL, NULL, 'A10955'),
+('a1095512', 'A12', 'a1095527@mail.nuk.edu.tw', '', '女', '2000-01-12', '$2y$10$2wAcolBMeesjmNACLGHaZ.iOgnk8oRCvd.7n4hGOEoGRE.sHMTxz2', 1, 'OF', 12, 'A10955'),
+('a1095513', 'A13', 'a1095527@mail.nuk.edu.tw', '', '女', '2000-01-13', '$2y$10$00.e9EAlxEEUHwqWz/um2eHmvRihtTD3cZuTU2t0meJ6SP4801rg2', 1, 'OF', NULL, 'A10955'),
+('a1095514', 'A14', 'a1095527@mail.nuk.edu.tw', '', '女', '2000-01-14', '$2y$10$VojuW.3Nset3BhrjMD7fROpdwkRMbEipSVfz0HIz0pLOeGdwRWojC', NULL, NULL, NULL, 'A10955'),
+('a1095515', 'A15', 'a1095527@mail.nuk.edu.tw', '', '女', '2000-01-15', '$2y$10$VKmlTsieVNJ6eCL03N2NCOO50Te7pOQWZM9FIugqI6D92X74GpVUa', NULL, NULL, NULL, 'A10955'),
+('a1095516', 'A16', 'a1095527@mail.nuk.edu.tw', '', '女', '2000-01-16', '$2y$10$p5Hom10KmfIaFJkfOSh2ku52smUfDe.7gKoR7PsnBvXFLoc1MtG0e', NULL, NULL, NULL, 'A10955'),
+('a1095517', 'A17', 'a1095527@mail.nuk.edu.tw', '', '女', '2000-01-17', '$2y$10$BORNbb8AiH8sSHtSU4ToTeq975RdvrBWu44tqRq9CH17xgqRtYVdS', NULL, NULL, NULL, 'A10955'),
+('a1095518', 'A18', 'a1095527@mail.nuk.edu.tw', '', '女', '2000-01-18', '$2y$10$9T1HMoFq7h.CFDOk8qFUG.rC6Cs7p5FLoQgSBZ.n1GHMdrItutXym', NULL, NULL, NULL, 'A10955'),
+('a1095519', 'A19', 'a1095527@mail.nuk.edu.tw', '', '女', '2000-01-19', '$2y$10$0ah1M8A.nkuqSJVB4M4mluSi4FKwFfuwDsBA1XUEd9wDVp21wzvA2', NULL, NULL, NULL, 'A10955'),
+('a1095520', 'A20', 'a1095527@mail.nuk.edu.tw', '', '女', '2000-01-20', '$2y$10$csZBw4bxOBl3/3BNASGaqOyRVIomghWCTclNTNVWrQtOPvsjSzAz.', NULL, NULL, NULL, 'A10955');
+
 
 -- --------------------------------------------------------
 
@@ -453,7 +455,8 @@ ALTER TABLE `違規紀錄`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `入住申請`
 --
 ALTER TABLE `入住申請`
-  MODIFY `申請編號` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=377;
+  MODIFY `申請編號` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=381;
+
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `留言`
