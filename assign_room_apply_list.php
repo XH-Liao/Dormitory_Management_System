@@ -24,12 +24,20 @@ $result = mysqli_query($link, $SQL);
         <h1>住宿申請名單</h1>
     </div>
     <div class="col-6">
-        <a href="assign_room" class="btn btn-primary" style="float: right;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" fill="currentColor" class="bi bi-door-open-fill" viewBox="0 0 16 16">
-                <path d="M1.5 15a.5.5 0 0 0 0 1h13a.5.5 0 0 0 0-1H13V2.5A1.5 1.5 0 0 0 11.5 1H11V.5a.5.5 0 0 0-.57-.495l-7 1A.5.5 0 0 0 3 1.5V15H1.5zM11 2h.5a.5.5 0 0 1 .5.5V15h-1V2zm-2.5 8c-.276 0-.5-.448-.5-1s.224-1 .5-1 .5.448.5 1-.224 1-.5 1z" />
-            </svg>
-            分配房間
-        </a>
+        <div class="btn-group" style="float: right;">
+            <button class="btn btn-danger" data-bs-toggle='modal' data-bs-target='#email_modal'>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope-fill" viewBox="0 0 16 16">
+                    <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z" />
+                </svg>
+                催繳費用
+            </button>
+            <a href="assign_room" class="btn btn-primary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" fill="currentColor" class="bi bi-door-open-fill" viewBox="0 0 16 16">
+                    <path d="M1.5 15a.5.5 0 0 0 0 1h13a.5.5 0 0 0 0-1H13V2.5A1.5 1.5 0 0 0 11.5 1H11V.5a.5.5 0 0 0-.57-.495l-7 1A.5.5 0 0 0 3 1.5V15H1.5zM11 2h.5a.5.5 0 0 1 .5.5V15h-1V2zm-2.5 8c-.276 0-.5-.448-.5-1s.224-1 .5-1 .5.448.5 1-.224 1-.5 1z" />
+                </svg>
+                分配房間
+            </a>
+        </div>
     </div>
 </div>
 <!--列出學生申請資料-->
@@ -66,4 +74,45 @@ $result = mysqli_query($link, $SQL);
             ?>
         </tbody>
     </table>
+</div>
+
+<!-- 確認發送Email Modal -->
+<div class="modal fade" id="email_modal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">催繳通知</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                確認發送催繳通知Email？
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" data-bs-toggle='modal' data-bs-target='#wait_modal' onclick="location.href='email.php';">確認</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 確認發送Email Modal -->
+<div class="modal fade" id="wait_modal" data-bs-backdrop="static">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Email寄送中</h5>
+            </div>
+            <div class="modal-body">
+                <br>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-1"></div>
+                        <div class="loader col-3"></div>
+                        <div class="col-8" style="text-align: center;"><br>請稍後...正在發送催繳通知</div>
+                    </div>
+                </div>
+                <br><br>
+            </div>
+        </div>
+    </div>
 </div>
