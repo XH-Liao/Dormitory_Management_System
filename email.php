@@ -38,7 +38,7 @@ try {
         "Tel：(07)5919000<br>" .
         "Fax：(07)5919083<br>" .
         "Email：sec@nuk.edu.tw".
-        "<br><br><br><br><br><font color='orange'>此信件僅為測試訊息！</font>";
+        "<br><br><br><br><br><font color='yellow'>此信件僅為測試訊息！</font>";
 
     // SQL 查詢所有未繳費的名單 (姓名、Email)
     $SQL = "SELECT 姓名, Email
