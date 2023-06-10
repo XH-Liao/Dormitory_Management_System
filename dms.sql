@@ -132,7 +132,8 @@ INSERT INTO `宿舍大樓` (`大樓名稱`, `房間住宿費用`, `房間數`, `
 
 CREATE TABLE `宿舍大樓_大樓設備` (
   `大樓設備` varchar(50) NOT NULL,
-  `宿舍編號` char(2) NOT NULL
+  `宿舍編號` char(2) NOT NULL,
+  `維修狀態` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -192,7 +193,8 @@ INSERT INTO `宿舍房間` (`房間號碼`, `當前入住人數`, `宿舍編號`
 CREATE TABLE `宿舍房間_設備` (
   `設備` varchar(50) NOT NULL,
   `房間號碼` int(11) NOT NULL,
-  `宿舍編號` char(2) NOT NULL
+  `宿舍編號` char(2) NOT NULL,
+  `維修狀態` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
