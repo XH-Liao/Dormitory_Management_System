@@ -49,7 +49,7 @@ $result = mysqli_query($link, $SQL);
                 echo "<td>" . $row['宿舍編號'] . "</td>";
                 echo "<td></td>";
                 echo "<td>" . $row['大樓設備'] . "</td>";
-                echo "<td>" . $row['維修狀態'] . "</td>";
+                echo "<td>維修中</td>";
                 echo "</tr>";
             }
             $SQL = "SELECT 設備,宿舍編號,房間號碼,維修狀態
@@ -63,7 +63,7 @@ $result = mysqli_query($link, $SQL);
                 echo "<td>" . $row['宿舍編號'] . "</td>";
                 echo "<td>" . $row['房間號碼'] . "</td>";
                 echo "<td>" . $row['設備'] . "</td>";
-                echo "<td>" . $row['維修狀態'] . "</td>";
+                echo "<td>維修中</td>";
                 echo "</tr>";
             }
             ?>
