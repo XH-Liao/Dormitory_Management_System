@@ -94,6 +94,21 @@ if ($title != "密碼修改" && isset($_SESSION["login_identity"]) && $_SESSION[
                         </a>
                     </li>
                     <?php
+                    if(!isset($_SESSION['login_identity']))
+                    {
+                        print <<< EOT
+                        <li class="nav-item">
+                        <a class="nav-link" href="fix" id="fix">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18"  fill="currentColor" class="bi bi-person-lines-fill" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M10 1.5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-1Zm-5 0A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5v1A1.5 1.5 0 0 1 9.5 4h-3A1.5 1.5 0 0 1 5 2.5v-1Zm-2 0h1v1A2.5 2.5 0 0 0 6.5 5h3A2.5 2.5 0 0 0 12 2.5v-1h1a2 2 0 0 1 2 2V14a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V3.5a2 2 0 0 1 2-2Z"/>
+                            </svg>
+                        報修申請
+                        </a>
+                    </li>
+EOT;
+                    }
+                    ?>
+                    <?php
                     //所有人：可顯示"首頁"、"留言板"
                     if (isset($_SESSION['login_identity'])) {
                         //具有學生身分："宿舍申請"、更改個資(for stu)
@@ -106,6 +121,16 @@ if ($title != "密碼修改" && isset($_SESSION["login_identity"]) && $_SESSION[
                                     </svg>
                                     申請住宿
                                 </a>
+                            </li>
+EOT;
+                            print <<< EOT
+                            <li class="nav-item">
+                            <a class="nav-link" href="fix" id="fix">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18"  fill="currentColor" class="bi bi-person-lines-fill" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M10 1.5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-1Zm-5 0A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5v1A1.5 1.5 0 0 1 9.5 4h-3A1.5 1.5 0 0 1 5 2.5v-1Zm-2 0h1v1A2.5 2.5 0 0 0 6.5 5h3A2.5 2.5 0 0 0 12 2.5v-1h1a2 2 0 0 1 2 2V14a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V3.5a2 2 0 0 1 2-2Z"/>
+                                </svg>
+                            報修申請
+                            </a>
                             </li>
 EOT;
                         }
