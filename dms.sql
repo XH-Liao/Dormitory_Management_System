@@ -3,10 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2023-06-07 08:19:19
-
+-- 產生時間： 2023-06-11 18:30:09
 -- 伺服器版本： 10.4.27-MariaDB
--- PHP 版本： 8.0.25
+-- PHP 版本： 8.1.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -99,7 +98,6 @@ INSERT INTO `學生` (`學號`, `姓名`, `Email`, `連絡電話`, `性別`, `�
 ('a1095519', 'A19', 'a1095527@mail.nuk.edu.tw', '', '女', '2000-01-19', '$2y$10$0ah1M8A.nkuqSJVB4M4mluSi4FKwFfuwDsBA1XUEd9wDVp21wzvA2', NULL, NULL, NULL, 'A10955'),
 ('a1095520', 'A20', 'a1095527@mail.nuk.edu.tw', '', '女', '2000-01-20', '$2y$10$csZBw4bxOBl3/3BNASGaqOyRVIomghWCTclNTNVWrQtOPvsjSzAz.', NULL, NULL, NULL, 'A10955');
 
-
 -- --------------------------------------------------------
 
 --
@@ -133,17 +131,20 @@ INSERT INTO `宿舍大樓` (`大樓名稱`, `房間住宿費用`, `房間數`, `
 CREATE TABLE `宿舍大樓_大樓設備` (
   `大樓設備` varchar(50) NOT NULL,
   `宿舍編號` char(2) NOT NULL,
-  `維修狀態` tinyint(1) NOT NULL DEFAULT 0
+  `維修狀態` tinyint(1) NOT NULL DEFAULT 0,
+  `報修人` varchar(10) DEFAULT NULL,
+  `聯絡方式` varchar(10) DEFAULT NULL,
+  `損毀情況` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- 傾印資料表的資料 `宿舍大樓_大樓設備`
 --
 
-INSERT INTO `宿舍大樓_大樓設備` (`大樓設備`, `宿舍編號`) VALUES
-('冰箱', 'OB'),
-('桌子', 'OB'),
-('椅子', 'OB');
+INSERT INTO `宿舍大樓_大樓設備` (`大樓設備`, `宿舍編號`, `維修狀態`, `報修人`, `聯絡方式`, `損毀情況`) VALUES
+('冰箱', 'OB', 0, NULL, NULL, NULL),
+('桌子', 'OB', 0, NULL, NULL, NULL),
+('椅子', 'OB', 0, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -194,17 +195,20 @@ CREATE TABLE `宿舍房間_設備` (
   `設備` varchar(50) NOT NULL,
   `房間號碼` int(11) NOT NULL,
   `宿舍編號` char(2) NOT NULL,
-  `維修狀態` tinyint(1) NOT NULL DEFAULT 0
+  `維修狀態` tinyint(1) NOT NULL DEFAULT 0,
+  `報修人` varchar(10) DEFAULT NULL,
+  `聯絡方式` varchar(10) DEFAULT NULL,
+  `損毀情況` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- 傾印資料表的資料 `宿舍房間_設備`
 --
 
-INSERT INTO `宿舍房間_設備` (`設備`, `房間號碼`, `宿舍編號`) VALUES
-('書架', 1, 'OB'),
-('椅子', 1, 'OB'),
-('鞋櫃', 1, 'OB');
+INSERT INTO `宿舍房間_設備` (`設備`, `房間號碼`, `宿舍編號`, `維修狀態`, `報修人`, `聯絡方式`, `損毀情況`) VALUES
+('書架', 1, 'OB', 0, NULL, NULL, NULL),
+('椅子', 1, 'OB', 0, NULL, NULL, NULL),
+('鞋櫃', 1, 'OB', 0, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -458,7 +462,6 @@ ALTER TABLE `違規紀錄`
 --
 ALTER TABLE `入住申請`
   MODIFY `申請編號` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=381;
-
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `留言`
