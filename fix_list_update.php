@@ -60,7 +60,7 @@ if($RoomID == NULL)
     {
         
         $SQL="UPDATE 宿舍大樓_大樓設備
-        SET 維修狀態 = 0
+        SET 維修狀態 = 0,報修人 = NULL,聯絡方式 = NULL ,損毀情況 = NULL
         where 宿舍編號='$DomiID' and 大樓設備 ='$ToolName' 
         ";
 
@@ -119,7 +119,7 @@ else
     else
     {
         $SQL="UPDATE 宿舍房間_設備
-        SET 維修狀態 = 0
+        SET 維修狀態 = 0,報修人 = NULL,聯絡方式 = NULL ,損毀情況 = NULL
         where 宿舍編號='$DomiID' and 設備 ='$ToolName' and 房間號碼 = '$RoomID' 
         ";
 

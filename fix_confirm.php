@@ -6,6 +6,9 @@ session_start();
 require('dbconnect.php');
 
 $DomiID=$_POST['宿舍編號'];
+$Reporter=$_POST['報修人'];
+$Contact=$_POST['聯絡方式'];
+$How=$_POST['損毀情況'];
 if(isset($_POST['房間號碼']))
 {
     $RoomID=$_POST['房間號碼'];
@@ -16,10 +19,10 @@ else
 }
 $ToolName=$_POST['設備名稱'];
 
-if($DomiID == NULL || $ToolName == NULL)
+if($DomiID == NULL || $ToolName == NULL || $Reporter == NULL || $Contact == NULL || $How == NULL)
 {
      
-    $_SESSION['msg']='大樓和設備名稱為必填';
+    $_SESSION['msg']='資料未填寫';
     header('Location: fix');
     exit;
 }
@@ -45,7 +48,7 @@ if($RoomID == NULL)
     {
         
         $SQL="UPDATE 宿舍大樓_大樓設備
-        SET 維修狀態 = 1
+        SET 維修狀態 = 1,報修人 = '$Reporter',聯絡方式 = '$Contact',損毀情況 = '$How'
         where 宿舍編號='$DomiID' and 大樓設備 ='$ToolName' 
         ";
 
@@ -98,7 +101,7 @@ else
     else
     {
         $SQL="UPDATE 宿舍房間_設備
-        SET 維修狀態 = 1
+        SET 維修狀態 = 1,報修人 = '$Reporter',聯絡方式 = '$Contact',損毀情況 = '$How'
         where 宿舍編號='$DomiID' and 設備 ='$ToolName' and 房間號碼 = '$RoomID' 
         ";
 
