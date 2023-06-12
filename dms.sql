@@ -132,17 +132,21 @@ INSERT INTO `宿舍大樓` (`大樓名稱`, `房間住宿費用`, `房間數`, `
 
 CREATE TABLE `宿舍大樓_大樓設備` (
   `大樓設備` varchar(50) NOT NULL,
-  `宿舍編號` char(2) NOT NULL
+  `宿舍編號` char(2) NOT NULL,
+  `維修狀態` tinyint(1) NOT NULL DEFAULT 0,
+  `報修人` varchar(10) DEFAULT NULL,
+  `聯絡方式` varchar(10) DEFAULT NULL,
+  `損毀情況` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- 傾印資料表的資料 `宿舍大樓_大樓設備`
 --
 
-INSERT INTO `宿舍大樓_大樓設備` (`大樓設備`, `宿舍編號`) VALUES
-('冰箱', 'OB'),
-('桌子', 'OB'),
-('椅子', 'OB');
+INSERT INTO `宿舍大樓_大樓設備` (`大樓設備`, `宿舍編號`, `維修狀態`, `報修人`, `聯絡方式`, `損毀情況`) VALUES
+('冰箱', 'OB', 0, NULL, NULL, NULL),
+('桌子', 'OB', 0, NULL, NULL, NULL),
+('椅子', 'OB', 0, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -192,17 +196,21 @@ INSERT INTO `宿舍房間` (`房間號碼`, `當前入住人數`, `宿舍編號`
 CREATE TABLE `宿舍房間_設備` (
   `設備` varchar(50) NOT NULL,
   `房間號碼` int(11) NOT NULL,
-  `宿舍編號` char(2) NOT NULL
+  `宿舍編號` char(2) NOT NULL,
+  `維修狀態` tinyint(1) NOT NULL DEFAULT 0,
+  `報修人` varchar(10) DEFAULT NULL,
+  `聯絡方式` varchar(10) DEFAULT NULL,
+  `損毀情況` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- 傾印資料表的資料 `宿舍房間_設備`
 --
 
-INSERT INTO `宿舍房間_設備` (`設備`, `房間號碼`, `宿舍編號`) VALUES
-('書架', 1, 'OB'),
-('椅子', 1, 'OB'),
-('鞋櫃', 1, 'OB');
+INSERT INTO `宿舍房間_設備` (`設備`, `房間號碼`, `宿舍編號`, `維修狀態`, `報修人`, `聯絡方式`, `損毀情況`) VALUES
+('書架', 1, 'OB', 0, NULL, NULL, NULL),
+('椅子', 1, 'OB', 0, NULL, NULL, NULL),
+('鞋櫃', 1, 'OB', 0, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -221,6 +229,7 @@ CREATE TABLE `班級` (
 INSERT INTO `班級` (`班級編號`) VALUES
 ('A10855'),
 ('A10955');
+('A11055');
 
 -- --------------------------------------------------------
 
