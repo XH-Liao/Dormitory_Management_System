@@ -48,8 +48,28 @@ require('dbconnect.php');
             var firstValue = $('#firstSelect').val();
             var secondValue = $(this).val();
             if (secondValue === '') {
+                if(firstValue === '')
+                {
                 $('#thirdSelect').html('<option value="">請先選擇其他項目</option>'); 
-            } else {
+                }
+                else
+                {
+                    $.ajax({
+                    url: "get_fix_tool_options.php",
+                    method: "POST",
+                    data: {
+                        value: firstValue
+                        
+                    },
+                    success: function(response) {
+                        var thirdSelect = document.getElementById("thirdSelect");
+                        thirdSelect.innerHTML = response;
+                    }
+                });
+                }
+            }
+            else 
+            {
                 // 使用AJAX向PHP發送請求，獲取第二個下拉式選單的選項內容
                 
                 $.ajax({
