@@ -43,14 +43,18 @@ if($new_password != $check_password){
 }
 
 //確認原密碼正確、不是預設密碼
-if($_SESSION["login_identity"] == "系統管理員"){        //查詢系統管理員密碼
+if($_SESSION["login_identity"] == "系統管理員"){                //查詢系統管理員密碼
     $SQL = "SELECT 密碼, 生日
             FROM 系統管理員
             WHERE Account='{$_SESSION["login_account"]}'";
-}else{                                                  //查詢學生、舍監密碼
+}else if($_SESSION["login_identity"] == "學生"){                //查詢學生、舍監密碼
     $SQL = "SELECT 密碼, 生日
             FROM 學生
             WHERE 學號='{$_SESSION["login_account"]}'";
+}else if($_SESSION["login_identity"] == "老師"){                //查詢老師密碼
+    $SQL = "SELECT 密碼, 生日
+            FROM 老師
+            WHERE 老師編號='{$_SESSION["login_account"]}'";
 }
 $result = mysqli_query($link, $SQL);
 $row = mysqli_fetch_assoc($result);
@@ -73,10 +77,14 @@ if($_SESSION["login_identity"] == "系統管理員"){
     $SQL = "UPDATE 系統管理員
             SET 密碼='$pwd_hash'
             WHERE Account='{$_SESSION["login_account"]}'";
-}else{
+}else if($_SESSION["login_identity"] == "學生"){
     $SQL = "UPDATE 學生
             SET 密碼='$pwd_hash'
             WHERE 學號='{$_SESSION["login_account"]}'";
+}else if($_SESSION["login_identity"] == "老師"){
+    $SQL = "UPDATE 老師
+            SET 密碼='$pwd_hash'
+            WHERE 老師編號='{$_SESSION["login_account"]}'";
 }
 
 if(!mysqli_query($link, $SQL)){

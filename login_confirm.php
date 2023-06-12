@@ -66,10 +66,36 @@ if (mysqli_num_rows($result) > 0) {
             $_SESSION["changed_password"] = false;
             header('Location: alter_password');
         }
-    } else {            //"此帳號不存在"
-        $_SESSION['msg'] = "此帳號不存在！";
-        header('Location: login');
-        exit();
+    } else { //檢查帳號是否在"老師"table
+        $SQL = "SELECT 密碼, 姓名, 生日
+                FROM 老師
+                WHERE 老師編號='$uAccount'";
+        $result = mysqli_query($link, $SQL);
+        if (mysqli_num_rows($result) > 0) {
+            $row = mysqli_fetch_assoc($result);
+            //Check：密碼正確
+            if (!password_verify($uPwd, $row["密碼"])) {
+                $_SESSION['msg'] = "帳號或密碼錯誤！";
+                header('Location: login');
+                exit();
+            }
+            //設定登入身分、姓名
+            $_SESSION['login_identity'] = "老師";
+            $_SESSION['login_account'] = $uAccount;
+            $_SESSION['姓名'] = $row['姓名'];
+            //Check：是否有修改預設密碼
+            if ($uPwd != "Nuk" . $row["生日"]) {
+                $_SESSION["changed_password"] = true;
+                header('Location: ./');
+            } else {
+                $_SESSION["changed_password"] = false;
+                header('Location: alter_password');
+            }
+        } else {            //"此帳號不存在"
+            $_SESSION['msg'] = "此帳號不存在！";
+            header('Location: login');
+            exit();
+        }
     }
 }
       
