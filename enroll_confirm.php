@@ -9,10 +9,11 @@
     }
 
     //HTTP-POST取得form輸入資料
-    $identity = $_POST['identity'];
-    $uAccount = $_POST['學號'];
+    $identity = $_POST['identity'];     //註冊的身分
+    $uAccount = $_POST['帳號'];
     $uName = $_POST['姓名'];
     $uBirthdate = $_POST['生日'];
+    $class_No = $_POST['班級'];
     if(isset($_POST['性別'])){
         $uGender = $_POST['性別'];
     }
@@ -28,7 +29,7 @@
 
     //所有欄位皆為必填
     if($identity == "學生"){
-        if($uAccount==null || $uName==null || $uGender==null || $uBirthdate==null){
+        if($uAccount==null || $uName==null || $class_No==null || $uGender==null || $uBirthdate==null){
             $_SESSION['msg']="所有欄位皆為必填";
             header('Location: enroll');
             exit;
@@ -37,6 +38,12 @@
     else if($identity == "系統管理員"){
         if($uAccount==null || $uName==null || $uBirthdate==null){
             $_SESSION['msg']="所有欄位皆為必填";
+            header('Location: enroll');
+            exit;
+        }
+    }else if($identity == "老師"){
+        if($uAccount==null || $uName==null || $uBirthdate==null){
+            $_SESSION['msg']="除了欄位\"指導班級\"，所有欄位皆為必填";
             header('Location: enroll');
             exit;
         }
@@ -61,11 +68,20 @@
             WHERE Account='$uAccount'";
     $result = mysqli_query($link, $SQL);
     $amount += mysqli_num_rows($result);
+
+    $SQL = "SELECT 老師編號 
+            FROM 老師
+            WHERE 老師編號='$uAccount'";
+    $result = mysqli_query($link, $SQL);
+    $amount += mysqli_num_rows($result);
+
     if($amount != 0){
         if($identity == "學生")
-            $_SESSION['msg']='請勿重複註冊，此學號已存在！';
+            $_SESSION['msg']='請勿重複註冊，此學生已存在！';
         else if($identity == "系統管理員")
-            $_SESSION['msg']='請勿重複註冊，此帳號已存在！';
+            $_SESSION['msg']='請勿重複註冊，此管理員已存在！';
+        else if($identity == "老師")
+            $_SESSION['msg']='請勿重複註冊，此老師已存在！';
         header('Location: enroll');
         //echo "<meta http-equiv='Refresh' content='0; url=enroll.php'>";
         exit;
@@ -73,9 +89,11 @@
 
     //加入資料表中
     if($identity == "學生")
-        $SQL = "INSERT INTO 學生 (學號, 姓名, 性別, 密碼, 生日) VALUES ('$uAccount', '$uName', '$uGender', '$pwd_hash', '$uBirthdate')";
+        $SQL = "INSERT INTO 學生 (學號, 姓名, 性別, 密碼, 生日, 班級編號) VALUES ('$uAccount', '$uName', '$uGender', '$pwd_hash', '$uBirthdate', '$class_No')";
     else if($identity == "系統管理員")
         $SQL = "INSERT INTO 系統管理員 (Account, 姓名, 密碼, 生日) VALUES ('$uAccount', '$uName', '$pwd_hash', '$uBirthdate')";
+    else if($identity == "老師")
+        $SQL = "INSERT INTO 老師 (老師編號, 姓名, 密碼, 生日, 班級編號) VALUES ('$uAccount', '$uName', '$pwd_hash', '$uBirthdate', '$class_No')";
     
     if(mysqli_query($link, $SQL)){
         echo "<script type='text/javascript'>";
