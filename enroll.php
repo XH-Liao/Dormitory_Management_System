@@ -41,6 +41,9 @@ EOT;
                 <li class="nav-item">
                     <a class="nav-link" data-bs-toggle="tab" href="#系統管理員">系統管理員</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="tab" href="#老師">老師</a>
+                </li>
 EOT;
             } else {
                 print <<<EOT
@@ -49,6 +52,9 @@ EOT;
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active" data-bs-toggle="tab" href="#系統管理員">系統管理員</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="tab" href="#老師">老師</a>
                 </li>
 EOT;
             }
@@ -100,37 +106,71 @@ EOT;
                         <input type="date" name="生日" class="form-control" required>
                     </div>
                 </div>
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label">班級</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="班級" class="form-control" required>
+                    </div>
+                </div>
                 <input type="submit" value="註冊" class="form-control btn btn-primary">
             </form>
         </div>
-        <?php
-        if (!isset($_SESSION['msg']) || $_SESSION['msg'] != "請勿重複註冊，此帳號已存在！")
-            echo "<div id='系統管理員' class='container tab-pane '><br>";
-        else
-            echo "<div id='系統管理員' class='container tab-pane active'><br>";
-        ?>
-        <form action="enroll_confirm.php" method="POST">
-            <input type="hidden" name="identity" value="系統管理員">
-            <div class="mb-3 row">
-                <label class="col-sm-2 col-form-label">帳號</label>
-                <div class="col-sm-10">
-                    <input type="text" name="學號" class="form-control" required>
+
+        <div id='系統管理員' class='container tab-pane fade'><br>
+            <form action="enroll_confirm.php" method="POST">
+                <input type="hidden" name="identity" value="系統管理員">
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label">帳號</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="帳號" class="form-control" required>
+                    </div>
                 </div>
-            </div>
-            <div class="mb-3 row">
-                <label class="col-sm-2 col-form-label">姓名</label>
-                <div class="col-sm-10">
-                    <input type="text" name="姓名" class="form-control" required>
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label">姓名</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="姓名" class="form-control" required>
+                    </div>
                 </div>
-            </div>
-            <div class="mb-3 row">
-                <label class="col-sm-2 col-form-label">生日</label>
-                <div class="col-sm-10">
-                    <input type="date" name="生日" class="form-control" required>
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label">生日</label>
+                    <div class="col-sm-10">
+                        <input type="date" name="生日" class="form-control" required>
+                    </div>
                 </div>
-            </div>
-            <input type="submit" value="註冊" class="form-control btn btn-primary">
-        </form>
+                <input type="submit" value="註冊" class="form-control btn btn-primary">
+            </form>
+        </div>
+
+        <div id='老師' class='container tab-pane fade'><br>
+            <form action="enroll_confirm.php" method="POST">
+                <input type="hidden" name="identity" value="老師">
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label">帳號</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="帳號" class="form-control" required>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label">姓名</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="姓名" class="form-control" required>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label">生日</label>
+                    <div class="col-sm-10">
+                        <input type="date" name="生日" class="form-control" required>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label class="col-sm-2 col-form-label">指導班級</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="指導班級" class="form-control" required>
+                    </div>
+                </div>
+                <input type="submit" value="註冊" class="form-control btn btn-primary">
+            </form>
+        </div>
     </div>
 </div>
 </div>
