@@ -134,19 +134,19 @@ if (isset($_GET['宿舍編號']) && isset($_GET['房間號碼'])) //判斷是否
 {
     $DomiID = $_GET['宿舍編號'];
     $RoomID = $_GET['房間號碼'];
-    $SQL = "SELECT 學號, 姓名, Email, 連絡電話, 性別,  生日,宿舍編號,房間號碼
+    $SQL = "SELECT 班級編號, 學號, 姓名, Email, 連絡電話, 性別,  生日,宿舍編號,房間號碼
         FROM 學生 where 宿舍編號='$DomiID' and 房間號碼='$RoomID'
         ORDER BY 學號 ASC";
     $result = mysqli_query($link, $SQL);
 } else if (isset($_GET['宿舍編號'])) //判斷是否來源於domi_list是就輸出住那棟樓的學生
 {
     $DomiID = $_GET['宿舍編號'];
-    $SQL = "SELECT 學號, 姓名, Email, 連絡電話, 性別,  生日,宿舍編號,房間號碼
+    $SQL = "SELECT 班級編號, 學號, 姓名, Email, 連絡電話, 性別,  生日,宿舍編號,房間號碼
         FROM 學生 where 宿舍編號='$DomiID'
         ORDER BY 學號 ASC";
     $result = mysqli_query($link, $SQL);
 } else {
-    $SQL = "SELECT 學號, 姓名, Email, 連絡電話, 性別,  生日,宿舍編號,房間號碼
+    $SQL = "SELECT 班級編號, 學號, 姓名, Email, 連絡電話, 性別,  生日,宿舍編號,房間號碼
         FROM 學生 
         ORDER BY 學號 ASC";
     $result = mysqli_query($link, $SQL);
@@ -156,6 +156,7 @@ if (isset($_GET['宿舍編號']) && isset($_GET['房間號碼'])) //判斷是否
     <table class="table table-hover align-middle align-items-center sortable">
         <thead>
             <th colspan="2"></th>
+            <th>班級</th>
             <th>學號</th>
             <th>姓名</th>
             <th>Email</th>
@@ -171,6 +172,7 @@ if (isset($_GET['宿舍編號']) && isset($_GET['房間號碼'])) //判斷是否
                 echo "<tr>";
                 echo "<td><a href='stu_list_update?學號=" . $row['學號'] . "'><i class='bi bi-pencil-square'></i></a></td>";
                 echo "<td><a href='stu_list_delete?學號=" . $row['學號'] . "' onclick='return confirm(\"確認刪除學生資料？\")'><i class='bi bi-trash3'></i></a></td>";
+                echo "<td>" . $row['班級編號'] . "</td>";
                 echo "<td>" . $row['學號'] . "</td>";
                 echo "<td>" . $row['姓名'] . "</td>";
                 echo "<td>" . $row['Email'] . "</td>";
