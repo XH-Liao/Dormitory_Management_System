@@ -51,18 +51,16 @@ $result = mysqli_query($link, $SQL);
                 echo "<td></td>";
                 echo "<td>" . $row['大樓設備'] . "</td>";
                 echo "<td>待處理</td>";
+                echo "<td><button type='button' class='btn btn-outline-secondary' data-bs-toggle='modal' data-bs-target=#".$row['宿舍編號'].$row['大樓設備'].">更多資訊</button><!-- Modal -->";
+                echo "<div class='modal fade' id=".$row['宿舍編號'].$row['大樓設備']." tabindex='-1' aria-labelledby=".$row['宿舍編號'].$row['大樓設備']."label aria-hidden='true'>";
                 print <<< EOT
-                <td>
-                <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#Modal1">
-                更多資訊
-                </button>
-                <!-- Modal -->
-                <div class="modal fade" id="Modal1" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-scrollable modal-lg">
                     <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="ModalLabel">更多資訊</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                EOT;
+                echo "<h5 class='modal-title' id=".$row['宿舍編號'].$row['大樓設備'].">更多資訊</h5>";
+                echo "<button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>";
+                print <<<EOT
                     </div>
                     <div class="modal-body">
                     <div class="mb-3 row">
@@ -114,19 +112,17 @@ EOT;
                 echo "<td>" . $row['房間號碼'] . "</td>";
                 echo "<td>" . $row['設備'] . "</td>";
                 echo "<td>待處理</td>";
+                echo "<td><button type='button' class='btn btn-outline-secondary' data-bs-toggle='modal'data-bs-target=#".$row['宿舍編號'].$row['房間號碼'].$row['設備'].">更多資訊</button><!-- Modal -->";
+                echo "<div class='modal fade' id=".$row['宿舍編號'].$row['房間號碼'].$row['設備']." tabindex='-1' aria-labelledby=".$row['宿舍編號'].$row['房間號碼'].$row['設備']."label aria-hidden='true'>";
                 print <<< EOT
-                <td>
-                <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#Modal2">
-                更多資訊
-                </button>
-                <!-- Modal -->
-                <div class="modal fade" id="Modal2" tabindex="-1" aria-labelledby="ModalLabel2"  aria-hidden="true">
                 <div class="modal-dialog modal-dialog-scrollable modal-lg">
                     <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="ModalLabel2">更多資訊</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
+                EOT;
+                echo "<h5 class='modal-title' id=".$row['宿舍編號'].$row['房間號碼'].$row['設備'].">更多資訊</h5>";
+                echo "<button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>";
+                print <<<EOT
+                </div>
                     <div class="modal-body">
                     <div class="mb-3 row">
                     <label class="col-sm-2 col-form-label">報修人</label>
