@@ -1,12 +1,9 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['login_identity']) || $_SESSION['login_identity'] != "系統管理員") {
-    if($_SESSION['login_identity'] != "老師")
-    {
+if (!isset($_SESSION['login_identity']) || $_SESSION['login_identity'] != "老師") {
     header('Location: login');
     exit;
-    }
 }
 
 $title = "班級列表";
@@ -18,7 +15,6 @@ require('dbconnect.php');
 <div class="row">
     <div class="col-6">
         <h1>班級學生列表</h1>
-        
     </div>
 </div>
 <?php
@@ -29,9 +25,9 @@ $SQL = "SELECT 班級編號
         where 老師編號= '$TeacherID'
         ";
     $result = mysqli_query($link, $SQL);
-    $row=mysqli_fetch_assoc($result)
+    $row=mysqli_fetch_assoc($result);
     $ClassNum=$row["班級編號"];
-$SQL = "SELECT 班級編號,學號,姓名,email,連絡電話,生日,宿舍編號,房間號碼,性別
+$SQL = "SELECT 班級編號,學號,姓名,Email,連絡電話,生日,宿舍編號,房間號碼,性別
         FROM 學生 
         where 班級編號 = '$ClassNum'
         ";
