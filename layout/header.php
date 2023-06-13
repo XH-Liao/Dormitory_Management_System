@@ -111,7 +111,7 @@ EOT;
                     <?php
                     //所有人：可顯示"首頁"、"留言板"
                     if (isset($_SESSION['login_identity'])) {
-                        //具有學生身分："宿舍申請"、更改個資(for stu)
+                        //具有老師身分：查看指導班級的學生資料
                         if ($_SESSION["login_identity"] == "老師"){
                             print <<< EOT
                                     <li class="nav-item">
@@ -125,7 +125,7 @@ EOT;
                                     EOT;        
                             print <<< EOT
                                     <li class="nav-item">
-                                        <a class="nav-link" href="class_list" id='class_list'>
+                                        <a class="nav-link" href="teacher_view_class" id='class_list'>
                                             <svg xmlns="http://www.w3.org/2000/svg" width="18"  fill="currentColor" class="bi bi-person-lines-fill" viewBox="0 0 16 16">
                                                 <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2z"/>
                                             </svg>
@@ -134,6 +134,7 @@ EOT;
                                     </li>
                                     EOT;
                         }
+                        //具有學生身分："宿舍申請"、更改個資(for stu)
                         if ($_SESSION["login_identity"] == "學生" || $_SESSION["login_identity"] == "舍監") {
                             print <<< EOT
                             <li class="nav-item">
