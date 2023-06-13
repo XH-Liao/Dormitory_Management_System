@@ -94,8 +94,7 @@ if ($title != "密碼修改" && isset($_SESSION["login_identity"]) && $_SESSION[
                         </a>
                     </li>
                     <?php
-                    if(!isset($_SESSION['login_identity']))
-                    {
+                    if (!isset($_SESSION['login_identity'])) {
                         print <<< EOT
                         <li class="nav-item">
                         <a class="nav-link" href="fix" id="fix">
@@ -112,7 +111,7 @@ EOT;
                     //所有人：可顯示"首頁"、"留言板"
                     if (isset($_SESSION['login_identity'])) {
                         //具有老師身分：查看指導班級的學生資料
-                        if ($_SESSION["login_identity"] == "老師"){
+                        if ($_SESSION["login_identity"] == "老師") {
                             print <<< EOT
                                     <li class="nav-item">
                                          <a class="nav-link" href="fix" id="fix">
@@ -122,7 +121,7 @@ EOT;
                                             報修申請
                                          </a>
                                     </li>
-                                    EOT;        
+                                    EOT;
                             print <<< EOT
                                     <li class="nav-item">
                                         <a class="nav-link" href="teacher_view_class" id='class_list'>
@@ -182,11 +181,11 @@ EOT;
                                 </a>
                                 <ul class="dropdown-menu"> <!-- dropdown-menu-right -->
                                     <li>
-                                        <a class="dropdown-item" href="stu_list" id='stu_list'>
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="18"  fill="currentColor" class="bi bi-person-lines-fill" viewBox="0 0 16 16">
-                                                <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2z"/>
+                                        <a class="dropdown-item" href="class_list" id='stu_list'>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" fill="currentColor" class="bi bi-collection" viewBox="0 0 16 16">
+                                                <path d="M2.5 3.5a.5.5 0 0 1 0-1h11a.5.5 0 0 1 0 1h-11zm2-2a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1h-7zM0 13a1.5 1.5 0 0 0 1.5 1.5h13A1.5 1.5 0 0 0 16 13V6a1.5 1.5 0 0 0-1.5-1.5h-13A1.5 1.5 0 0 0 0 6v7zm1.5.5A.5.5 0 0 1 1 13V6a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5h-13z"/>
                                             </svg>
-                                            學生列表
+                                            班級列表
                                         </a>
                                     </li>
                                     <li>
@@ -199,11 +198,11 @@ EOT;
                                         </a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="class_list" id='stu_list'>
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" fill="currentColor" class="bi bi-collection" viewBox="0 0 16 16">
-                                                <path d="M2.5 3.5a.5.5 0 0 1 0-1h11a.5.5 0 0 1 0 1h-11zm2-2a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1h-7zM0 13a1.5 1.5 0 0 0 1.5 1.5h13A1.5 1.5 0 0 0 16 13V6a1.5 1.5 0 0 0-1.5-1.5h-13A1.5 1.5 0 0 0 0 6v7zm1.5.5A.5.5 0 0 1 1 13V6a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5h-13z"/>
+                                        <a class="dropdown-item" href="stu_list" id='stu_list'>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="18"  fill="currentColor" class="bi bi-person-lines-fill" viewBox="0 0 16 16">
+                                                <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2z"/>
                                             </svg>
-                                            班級列表
+                                            學生列表
                                         </a>
                                     </li>
 EOT;
@@ -383,7 +382,7 @@ EOT;
                             </ul>
                         </li>
 EOT;
-                }else if ($_SESSION['login_identity'] == "老師") {
+                } else if ($_SESSION['login_identity'] == "老師") {
                     print <<<EOT
                         <li class="nav-item dropdown">
                             <a href="#" class="nav-link active dropdown-toggle" role="button" data-bs-toggle="dropdown">
