@@ -13,7 +13,9 @@ $identity = $_POST['identity'];     //註冊的身分
 $uAccount = $_POST['帳號'];
 $uName = $_POST['姓名'];
 $uBirthdate = $_POST['生日'];
-$class_No = $_POST['班級'];
+if(isset($_POST['班級'])){
+    $class_No = $_POST['班級'];
+}
 if (isset($_POST['性別'])) {
     $uGender = $_POST['性別'];
 }
@@ -50,6 +52,16 @@ if ($identity == "學生") {
     die("identity error!");
 }
 
+// 確認班級存在
+if (isset($class_No)) {
+    $SQL = "SELECT * FROM 班級 WHERE 班級編號='$class_No'";
+    $result = mysqli_query($link, $SQL);
+    if (mysqli_num_rows($result) <= 0) {
+        echo "<script type='text/javascript'> alert('Error：班級不存在！\\n提示：請輸入正確的班級編號！'); history.back(); </script>";
+        exit;
+    }
+}
+
 //依據生日，給定預設密碼
 $uPwd = 'Nuk' . $uBirthdate;  //e.g. Nuk2022-12-13
 $pwd_hash = password_hash($uPwd, PASSWORD_DEFAULT);
@@ -81,8 +93,8 @@ if ($amount != 0) {
         $_SESSION['msg'] = '請勿重複註冊，此管理員已存在！';
     else if ($identity == "老師")
         $_SESSION['msg'] = '請勿重複註冊，此老師已存在！';
-    header('Location: enroll');
-    //echo "<meta http-equiv='Refresh' content='0; url=enroll.php'>";
+
+    echo "<script type='text/javascript'> history.back(); </script>";
     exit;
 }
 
