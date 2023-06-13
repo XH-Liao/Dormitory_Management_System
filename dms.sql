@@ -3,8 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2023-06-07 08:19:19
-
+-- 產生時間： 2023-06-13 10:05:37
 -- 伺服器版本： 10.4.27-MariaDB
 -- PHP 版本： 8.0.25
 
@@ -98,7 +97,6 @@ INSERT INTO `學生` (`學號`, `姓名`, `Email`, `連絡電話`, `性別`, `�
 ('a1095518', 'A18', 'a1095527@mail.nuk.edu.tw', '', '女', '2000-01-18', '$2y$10$9T1HMoFq7h.CFDOk8qFUG.rC6Cs7p5FLoQgSBZ.n1GHMdrItutXym', NULL, NULL, NULL, 'A10955'),
 ('a1095519', 'A19', 'a1095527@mail.nuk.edu.tw', '', '女', '2000-01-19', '$2y$10$0ah1M8A.nkuqSJVB4M4mluSi4FKwFfuwDsBA1XUEd9wDVp21wzvA2', NULL, NULL, NULL, 'A10955'),
 ('a1095520', 'A20', 'a1095527@mail.nuk.edu.tw', '', '女', '2000-01-20', '$2y$10$csZBw4bxOBl3/3BNASGaqOyRVIomghWCTclNTNVWrQtOPvsjSzAz.', NULL, NULL, NULL, 'A10955');
-
 
 -- --------------------------------------------------------
 
@@ -209,7 +207,7 @@ CREATE TABLE `宿舍房間_設備` (
 
 INSERT INTO `宿舍房間_設備` (`設備`, `房間號碼`, `宿舍編號`, `維修狀態`, `報修人`, `聯絡方式`, `損毀情況`) VALUES
 ('書架', 1, 'OB', 0, NULL, NULL, NULL),
-('椅子', 1, 'OB', 0, NULL, NULL, NULL),
+('椅子', 1, 'OB', 1, 'Peter', '09xx', '椅腳會晃動'),
 ('鞋櫃', 1, 'OB', 0, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
@@ -228,7 +226,8 @@ CREATE TABLE `班級` (
 
 INSERT INTO `班級` (`班級編號`) VALUES
 ('A10855'),
-('A10955');
+('A10955'),
+('A11055');
 
 -- --------------------------------------------------------
 
@@ -308,17 +307,20 @@ CREATE TABLE `老師` (
   `老師編號` char(8) NOT NULL,
   `班級編號` char(6) DEFAULT NULL,
   `姓名` varchar(10) NOT NULL,
-  `密碼` varchar(100) NOT NULL
+  `密碼` varchar(100) NOT NULL,
+  `生日` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- 傾印資料表的資料 `老師`
 --
 
-INSERT INTO `老師` (`老師編號`, `班級編號`, `姓名`, `密碼`) VALUES
-('T1085501', 'A10855', '張保榮', '$2y$10$fWxQNOP7A6DGdIcv81D92OKcOme.c3N4AB7LdTFwKq8lVLOjBxR6m'),
-('T1095501', 'A10955', '林文揚', '$2y$10$fWxQNOP7A6DGdIcv81D92OKcOme.c3N4AB7LdTFwKq8lVLOjBxR6m'),
-('T1095502', 'A10955', '洪宗貝', '$2y$10$fWxQNOP7A6DGdIcv81D92OKcOme.c3N4AB7LdTFwKq8lVLOjBxR6m');
+INSERT INTO `老師` (`老師編號`, `班級編號`, `姓名`, `密碼`, `生日`) VALUES
+('t1085501', 'A10855', '張保榮', '$2y$10$fWxQNOP7A6DGdIcv81D92OKcOme.c3N4AB7LdTFwKq8lVLOjBxR6m', '2001-01-01'),
+('t1095501', 'A10955', '林文揚', '$2y$10$29nK4GcanDb81LOuxyrMX.HVl8YHD4b1cONnYuu8aeF421Hsdzk8W', '2001-01-01'),
+('t1095502', 'A10955', '洪宗貝', '$2y$10$fWxQNOP7A6DGdIcv81D92OKcOme.c3N4AB7LdTFwKq8lVLOjBxR6m', '2001-01-01'),
+('t1115501', NULL, 'TA1', '$2y$10$vLxiKUH.3kpUYGuBmEsGwOYwviKyBY/ybpA4k1ooutrviwZ4N/fie', '2000-11-01'),
+('t1115502', NULL, 'TA2', '$2y$10$/OxmnZctvdfgZYOs8KIoT.Wy2ipfz6SzGpKxqkOrtGD2tO82ur4LW', '2000-11-02');
 
 -- --------------------------------------------------------
 
@@ -465,7 +467,6 @@ ALTER TABLE `違規紀錄`
 ALTER TABLE `入住申請`
   MODIFY `申請編號` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=381;
 
-
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `留言`
 --
@@ -495,7 +496,7 @@ ALTER TABLE `入住申請`
 ALTER TABLE `學生`
   ADD CONSTRAINT `學生_ibfk_1` FOREIGN KEY (`房間號碼`,`宿舍編號`) REFERENCES `宿舍房間` (`房間號碼`, `宿舍編號`) ON DELETE SET NULL ON UPDATE CASCADE,
   ADD CONSTRAINT `學生_ibfk_2` FOREIGN KEY (`舍監編號`) REFERENCES `舍監` (`舍監編號`) ON DELETE SET NULL ON UPDATE CASCADE,
-  ADD CONSTRAINT `學生_ibfk_3` FOREIGN KEY (`班級編號`) REFERENCES `班級` (`班級編號`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `學生_ibfk_3` FOREIGN KEY (`班級編號`) REFERENCES `班級` (`班級編號`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- 資料表的限制式 `宿舍大樓_大樓設備`
@@ -533,7 +534,7 @@ ALTER TABLE `系統消息`
 -- 資料表的限制式 `老師`
 --
 ALTER TABLE `老師`
-  ADD CONSTRAINT `老師_ibfk_1` FOREIGN KEY (`班級編號`) REFERENCES `班級` (`班級編號`);
+  ADD CONSTRAINT `老師_ibfk_1` FOREIGN KEY (`班級編號`) REFERENCES `班級` (`班級編號`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
 -- 資料表的限制式 `違規紀錄`
