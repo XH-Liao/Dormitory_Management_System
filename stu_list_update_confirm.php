@@ -12,11 +12,13 @@ if (!isset($_SESSION['login_identity']) || $_SESSION['login_identity'] != "系�
 $original_uAccount = $_POST['原學號'];
 $uAccount = $_POST['學號'];
 $uName = $_POST['姓名'];
+$class_Number = $_POST["班級"];
 $uGender = $_POST['性別'];
 $uBirthdate = $_POST['生日'];
 
 //所有欄位皆為必填
-if ($original_uAccount == null || $uAccount == null || $uName == null || $uGender == null || $uBirthdate == null) {
+if ($original_uAccount == null || $uAccount == null || $uName == null || $class_Number == null 
+    || $uGender == null || $uBirthdate == null) {
     $_SESSION['msg'] = "所有欄位皆為必填";
     header("Location: stu_list_update?學號=$original_uAccount");
     exit;
@@ -37,7 +39,7 @@ if($original_uAccount != $uAccount){
 
 //修改學生資料
 $SQL = "UPDATE 學生
-        SET 學號='$uAccount', 姓名='$uName', 性別='$uGender', 生日='$uBirthdate'
+        SET 學號='$uAccount', 姓名='$uName', 班級編號='$class_Number', 性別='$uGender', 生日='$uBirthdate'
         WHERE 學號='$original_uAccount'";
 if(!mysqli_query($link, $SQL)){
     $_SESSION['msg'] = "學生資料修改失敗";

@@ -13,7 +13,7 @@ require('layout/header.php');
 
 require('dbconnect.php');
 //查詢學生原資料
-$SQL = "SELECT 姓名, 性別, 生日
+$SQL = "SELECT 姓名, 班級編號, 性別, 生日
         FROM 學生
         WHERE 學號='$uAccount'";
 $result = mysqli_query($link, $SQL);
@@ -42,6 +42,12 @@ $row = mysqli_fetch_assoc($result);
                 <label class="col-sm-2 col-form-label">姓名</label>
                 <div class="col-sm-10">
                     <input type="text" name="姓名" class="form-control" required value="<?php echo $row['姓名'] ?>">
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label class="col-sm-2 col-form-label">班級</label>
+                <div class="col-sm-10">
+                    <input type="text" name="班級" class="form-control" required value="<?php echo $row['班級編號'] ?>">
                 </div>
             </div>
             <div class="mb-3 row">
