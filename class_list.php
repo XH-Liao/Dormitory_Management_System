@@ -43,6 +43,7 @@ $result = mysqli_query($link, $SQL);
             <th>班級編號</th>
             <th>班級學生人數</th>
             <th style='text-align: left;'>導師編號-姓名</th>
+            <th>Functions</th>
         </thead>
         <tbody>
             <?php
@@ -71,8 +72,9 @@ $result = mysqli_query($link, $SQL);
                 }
                 echo "</td>";
 
-                //echo "<td>" . $row['老師編號'] . "</td>";
-                //echo "<td>" . $row['姓名'] . "</td>";
+                echo "<td><div class='btn-group'>";
+                echo "<a href='stu_list?班級編號=" . $row['班級編號'] . "' class='btn btn-outline-secondary'>查看班級學生</a>";
+                echo "</div></td>";
                 echo "</tr>";
             }
 

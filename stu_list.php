@@ -14,12 +14,18 @@ require('dbconnect.php');
 <br>
 <div class="row">
     <div class="col-6">
-        <h1><?php if (isset($_GET['宿舍編號']) && isset($_GET['房間號碼'])) {
+        <!--讓使用者知道是甚麼樣的學生列表-->
+        <h1>
+            <?php 
+            if (isset($_GET['宿舍編號']) && isset($_GET['房間號碼'])) {
                 echo $_GET['宿舍編號'] . $_GET['房間號碼'];
             } else if (isset($_GET['宿舍編號'])) {
                 echo $_GET['宿舍編號'];
-            } ?>學生列表</h1>
-        <!--讓使用者知道是甚麼樣的學生列表-->
+            } else if (isset($_GET["班級編號"])){
+                echo "班級".$_GET["班級編號"]." ";
+            } 
+            ?>學生列表
+        </h1>
     </div>
     <?php if (isset($_GET['宿舍編號']) && isset($_GET['房間號碼'])) {
         print <<< EOT
@@ -144,6 +150,12 @@ if (isset($_GET['宿舍編號']) && isset($_GET['房間號碼'])) //判斷是否
     $SQL = "SELECT 班級編號, 學號, 姓名, Email, 連絡電話, 性別,  生日,宿舍編號,房間號碼
         FROM 學生 where 宿舍編號='$DomiID'
         ORDER BY 學號 ASC";
+    $result = mysqli_query($link, $SQL);
+} else if(isset($_GET["班級編號"])){
+    $SQL = "SELECT 班級編號, 學號, 姓名, Email, 連絡電話, 性別,  生日,宿舍編號,房間號碼
+            FROM 學生
+            WHERE 班級編號='{$_GET["班級編號"]}'
+            ORDER BY 學號 ASC";
     $result = mysqli_query($link, $SQL);
 } else {
     $SQL = "SELECT 班級編號, 學號, 姓名, Email, 連絡電話, 性別,  生日,宿舍編號,房間號碼
