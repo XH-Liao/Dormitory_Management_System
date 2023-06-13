@@ -11,14 +11,7 @@ require('layout/header.php');
 require('dbconnect.php');
 ?>
 
-<br>
-<div class="row">
-    <div class="col-6">
-        <h1>班級學生列表</h1>
-    </div>
-</div>
 <?php
-
 $TeacherID=$_SESSION['login_account'];
 $SQL = "SELECT 班級編號
         FROM 老師 
@@ -32,6 +25,17 @@ $SQL = "SELECT 班級編號,學號,姓名,Email,連絡電話,生日,宿舍編號
         where 班級編號 = '$ClassNum'
         ";
         $result = mysqli_query($link, $SQL);
+?>
+
+<br>
+<div class="row">
+    <div class="col-6">
+        <h1>班級<?php echo $ClassNum; ?> 學生列表</h1>
+    </div>
+</div>
+<?php
+
+
 ?>
 <div class="table-responsive-md" id="center">
     <table class="table table-hover align-middle align-items-center sortable">
@@ -47,6 +51,9 @@ $SQL = "SELECT 班級編號,學號,姓名,Email,連絡電話,生日,宿舍編號
         </thead>
         <tbody>
             <?php
+            if(mysqli_num_rows($result) == 0){
+                echo "<tr><td colspan='8'>暫無指導班級</td></tr>";
+            }
             while ($row = mysqli_fetch_assoc($result)) {
                 echo "<tr>";
                 echo "<td>" . $row['班級編號'] . "</td>";
@@ -60,8 +67,6 @@ $SQL = "SELECT 班級編號,學號,姓名,Email,連絡電話,生日,宿舍編號
                 echo "</div></td>";
                 echo "</tr>";
             }
-
-
             ?>
         </tbody>
     </table>
