@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2023-06-13 10:05:37
+-- 產生時間： 2023-06-13 13:15:44
 -- 伺服器版本： 10.4.27-MariaDB
--- PHP 版本： 8.1.12
+-- PHP 版本： 8.0.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -79,6 +79,8 @@ CREATE TABLE `學生` (
 --
 
 INSERT INTO `學生` (`學號`, `姓名`, `Email`, `連絡電話`, `性別`, `生日`, `密碼`, `房間號碼`, `宿舍編號`, `舍監編號`, `班級編號`) VALUES
+('a1085501', 'Stu108_1', NULL, NULL, '男', '2000-01-01', '$2y$10$CBfIQuEZQa7jdZI.MBEqRueU2N39.q9DUNWdqpN7h3.n3vahYS8Hi', NULL, NULL, NULL, 'A10855'),
+('a1085502', 'Stu108_2', NULL, NULL, '女', '2000-01-02', '$2y$10$F8S49s1ZbyAo5NBMHUVWxuJ/hnqW3NGJI/tviKnseZAx6UbHrLAj6', NULL, NULL, NULL, 'A10855'),
 ('a1095502', 'A2', 'a1095527@mail.nuk.edu.tw', '', '男', '2000-01-02', '$2y$10$fWxQNOP7A6DGdIcv81D92OKcOme.c3N4AB7LdTFwKq8lVLOjBxR6m', 1, 'OE', 2, 'A10955'),
 ('a1095503', 'A3', 'a1095527@mail.nuk.edu.tw', '', '男', '2000-01-03', '$2y$10$K7cfHFucnqQd5c1kqg6g5.kt.w4WLT/0VGoNmlpBU1m9jvBKWMV/u', 1, 'OE', NULL, 'A10955'),
 ('a1095504', 'A4', 'a1095527@mail.nuk.edu.tw', '', '男', '2000-01-04', '$2y$10$g72jungmjAvO9zvkcpSJRO3Gm5Im4s2nWxXL7jdgLnmEP6ggsTnli', NULL, NULL, NULL, 'A10955'),
@@ -96,7 +98,10 @@ INSERT INTO `學生` (`學號`, `姓名`, `Email`, `連絡電話`, `性別`, `�
 ('a1095517', 'A17', 'a1095527@mail.nuk.edu.tw', '', '女', '2000-01-17', '$2y$10$BORNbb8AiH8sSHtSU4ToTeq975RdvrBWu44tqRq9CH17xgqRtYVdS', NULL, NULL, NULL, 'A10955'),
 ('a1095518', 'A18', 'a1095527@mail.nuk.edu.tw', '', '女', '2000-01-18', '$2y$10$9T1HMoFq7h.CFDOk8qFUG.rC6Cs7p5FLoQgSBZ.n1GHMdrItutXym', NULL, NULL, NULL, 'A10955'),
 ('a1095519', 'A19', 'a1095527@mail.nuk.edu.tw', '', '女', '2000-01-19', '$2y$10$0ah1M8A.nkuqSJVB4M4mluSi4FKwFfuwDsBA1XUEd9wDVp21wzvA2', NULL, NULL, NULL, 'A10955'),
-('a1095520', 'A20', 'a1095527@mail.nuk.edu.tw', '', '女', '2000-01-20', '$2y$10$csZBw4bxOBl3/3BNASGaqOyRVIomghWCTclNTNVWrQtOPvsjSzAz.', NULL, NULL, NULL, 'A10955');
+('a1095520', 'A20', 'a1095527@mail.nuk.edu.tw', '', '女', '2000-01-20', '$2y$10$csZBw4bxOBl3/3BNASGaqOyRVIomghWCTclNTNVWrQtOPvsjSzAz.', NULL, NULL, NULL, 'A10955'),
+('a1105501', 'Stu110_1', NULL, NULL, '男', '2000-01-01', '$2y$10$p6777tzh7Po.kplMwPItI.V6dTHwKuvpFiPCDAF6Zc3MH/sIJz1Ha', NULL, NULL, NULL, 'A11055'),
+('a1105502', 'Stu110_2', NULL, NULL, '男', '2000-01-02', '$2y$10$SZFXO2BH92T6Pyd6W99jie/55MLMfRRj7xZIuw838qDbxhShBEEtK', NULL, NULL, NULL, 'A11055'),
+('a1105503', 'Stu110_3', NULL, NULL, '男', '2000-01-03', '$2y$10$jpJP/Lipg7f1pZlPIuwd1eQduev2cS3LqrjAbhqjCiWdXDOwGsUpO', NULL, NULL, NULL, 'A11055');
 
 -- --------------------------------------------------------
 
@@ -143,7 +148,7 @@ CREATE TABLE `宿舍大樓_大樓設備` (
 
 INSERT INTO `宿舍大樓_大樓設備` (`大樓設備`, `宿舍編號`, `維修狀態`, `報修人`, `聯絡方式`, `損毀情況`) VALUES
 ('冰箱', 'OB', 0, NULL, NULL, NULL),
-('桌子', 'OB', 0, NULL, NULL, NULL),
+('桌子', 'OB', 1, 'Andy', 'andy123@gm', '桌腳損壞'),
 ('椅子', 'OB', 0, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
@@ -295,7 +300,11 @@ CREATE TABLE `系統管理員` (
 
 INSERT INTO `系統管理員` (`Account`, `生日`, `密碼`, `姓名`) VALUES
 ('admin', '2000-01-01', '$2y$10$HYZHrhLU5QQj/VK79vcp2ushFDKzHwHIB6VOgsa0f7Pc/RDLmsvRi', 'Admin'),
-('z1095502', '2000-01-02', '$2y$10$g6TfVcrO6cxI7uab3jedou9cfKvESQ2eOWeWYHKXSp2wJEXgn1k5.', 'Z2');
+('z1095502', '2000-01-02', '$2y$10$g6TfVcrO6cxI7uab3jedou9cfKvESQ2eOWeWYHKXSp2wJEXgn1k5.', 'Z2'),
+('z1095503', '2000-01-03', '$2y$10$/mYS0mJK8q8dDJh2U4a1M.1SHOfRBIs0Fvozk50ecpnKxOn5eCI8e', 'Z3'),
+('z1095504', '2000-01-04', '$2y$10$Qrnrh18Tbs5HkECRy6EAHOf95X.uqYz.TiS.bF0tAdAaZSsdxJBrq', 'Z4'),
+('z1095505', '2000-01-05', '$2y$10$oVkfGpX4GacQUj3BsSG6YeSLbP.xtnS8kM3dgiiIH/8wMjUmidyQC', 'Z5'),
+('z1095506', '2000-01-06', '$2y$10$uYAuH85C19plOlemDaCXPub7dhbNCzianJ2G7wi4LcbeRRU9hHi.i', 'Z6');
 
 -- --------------------------------------------------------
 
@@ -319,8 +328,8 @@ INSERT INTO `老師` (`老師編號`, `班級編號`, `姓名`, `密碼`, `生�
 ('t1085501', 'A10855', '張保榮', '$2y$10$fWxQNOP7A6DGdIcv81D92OKcOme.c3N4AB7LdTFwKq8lVLOjBxR6m', '2001-01-01'),
 ('t1095501', 'A10955', '林文揚', '$2y$10$29nK4GcanDb81LOuxyrMX.HVl8YHD4b1cONnYuu8aeF421Hsdzk8W', '2001-01-01'),
 ('t1095502', 'A10955', '洪宗貝', '$2y$10$fWxQNOP7A6DGdIcv81D92OKcOme.c3N4AB7LdTFwKq8lVLOjBxR6m', '2001-01-01'),
-('t1115501', NULL, 'TA1', '$2y$10$vLxiKUH.3kpUYGuBmEsGwOYwviKyBY/ybpA4k1ooutrviwZ4N/fie', '2000-11-01'),
-('t1115502', NULL, 'TA2', '$2y$10$/OxmnZctvdfgZYOs8KIoT.Wy2ipfz6SzGpKxqkOrtGD2tO82ur4LW', '2000-11-02');
+('t1115501', NULL, 'TR1', '$2y$10$g6TfVcrO6cxI7uab3jedou9cfKvESQ2eOWeWYHKXSp2wJEXgn1k5.', '2000-11-01'),
+('t1115502', NULL, 'TA2', '$2y$10$g6TfVcrO6cxI7uab3jedou9cfKvESQ2eOWeWYHKXSp2wJEXgn1k5.', '2000-11-02');
 
 -- --------------------------------------------------------
 
