@@ -10,7 +10,7 @@ $SQL = "SELECT 房間號碼
 $result = mysqli_query($link, $SQL);
 
 // 生成第二個下拉式選單的選項的HTML
-$html = "<option selected disabled>請選擇</option>";
+$html = "<option selected value=''>請選擇</option>";
 while($row = mysqli_fetch_assoc($result)){
     $html .= "<option value='".$row["房間號碼"]."'>".$row["房間號碼"]."</option>";
 }
