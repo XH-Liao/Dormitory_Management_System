@@ -21,9 +21,11 @@ if ($row["房間號碼"] != null) {
     $SQL_monitor = "SELECT 學號, 姓名
             FROM 宿舍房間, 學生
             WHERE 宿舍房間.舍監編號=學生.舍監編號 AND 宿舍房間.宿舍編號='{$row['宿舍編號']}' AND 宿舍房間.房間號碼='{$row['房間號碼']}'";
-    $result_monitor = mysqli_query($link, $SQL);
+    $result_monitor = mysqli_query($link, $SQL_monitor);
     $row_monitor = mysqli_fetch_assoc($result_monitor);
-    $monitor = $row_monitor["學號"] . " " . $row_monitor["姓名"];
+    if(mysqli_num_rows($result_monitor) > 0){
+        $monitor = $row_monitor["學號"] . " " . $row_monitor["姓名"];
+    }
 }
 ?>
 
