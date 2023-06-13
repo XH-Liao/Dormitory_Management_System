@@ -88,8 +88,6 @@ $result = mysqli_query($link, $SQL);
                 echo "<td>" . $row['設備'] . "</td>";
                 echo "<td>" . $row['房間號碼'] . "</td>";
                 echo "<td>" . $row['宿舍編號'] . "</td>";
-                echo "<td><div class='btn-group'>";
-                echo "</div></td>";
                 echo "</tr>";
             }
             ?>
