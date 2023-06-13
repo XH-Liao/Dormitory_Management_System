@@ -36,8 +36,9 @@ if ($title != "密碼修改" && isset($_SESSION["login_identity"]) && $_SESSION[
                 $("#monitor_violate").addClass("active");
             } else if (id == "apply" || id == "applied") {
                 $("#apply").addClass("active");
-            } else if (id == "domi_list" || id == "fix" || id == "fix_list") {
+            }else if (id == "domi_list" || id == "fix" || id == "fix_list") {
                 $("#building").addClass("active");
+                $("#fix_all").addClass("active");
             } else {
                 $("#" + id).addClass("active");
             }
@@ -79,6 +80,7 @@ if ($title != "密碼修改" && isset($_SESSION["login_identity"]) && $_SESSION[
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            <!--所有人：可顯示"首頁"-->
             <a class="navbar-brand" href="/SE_FinalProject" aria-current="page">
                 <svg xmlns="http://www.w3.org/2000/svg" width="22" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 16">
                     <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5Z" />
@@ -87,6 +89,7 @@ if ($title != "密碼修改" && isset($_SESSION["login_identity"]) && $_SESSION[
             </a>
             <div class="collapse navbar-collapse order-2 order-lg-1" id="navbarSupportedContent">
                 <ul class="navbar-nav">
+                    <!--所有人：可顯示"留言板"、"報修申請"-->
                     <li class="nav-item">
                         <a class="nav-link" href="message" id="message">
                             <svg xmlns="http://www.w3.org/2000/svg" width="18" fill="currentColor" class="bi bi-chat-dots-fill" viewBox="0 0 16 16">
@@ -95,35 +98,19 @@ if ($title != "密碼修改" && isset($_SESSION["login_identity"]) && $_SESSION[
                             留言板
                         </a>
                     </li>
-                    <?php
-                    if (!isset($_SESSION['login_identity'])) {
-                        print <<< EOT
-                        <li class="nav-item">
-                        <a class="nav-link" href="fix" id="fix">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18"  fill="currentColor" class="bi bi-person-lines-fill" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd" d="M10 1.5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-1Zm-5 0A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5v1A1.5 1.5 0 0 1 9.5 4h-3A1.5 1.5 0 0 1 5 2.5v-1Zm-2 0h1v1A2.5 2.5 0 0 0 6.5 5h3A2.5 2.5 0 0 0 12 2.5v-1h1a2 2 0 0 1 2 2V14a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V3.5a2 2 0 0 1 2-2Z"/>
+                    <li class="nav-item">
+                        <a class="nav-link" href="fix" id="fix_all">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" fill="currentColor" class="bi bi-tools" viewBox="0 0 16 16">
+                                <path d="M1 0 0 1l2.2 3.081a1 1 0 0 0 .815.419h.07a1 1 0 0 1 .708.293l2.675 2.675-2.617 2.654A3.003 3.003 0 0 0 0 13a3 3 0 1 0 5.878-.851l2.654-2.617.968.968-.305.914a1 1 0 0 0 .242 1.023l3.27 3.27a.997.997 0 0 0 1.414 0l1.586-1.586a.997.997 0 0 0 0-1.414l-3.27-3.27a1 1 0 0 0-1.023-.242L10.5 9.5l-.96-.96 2.68-2.643A3.005 3.005 0 0 0 16 3c0-.269-.035-.53-.102-.777l-2.14 2.141L12 4l-.364-1.757L13.777.102a3 3 0 0 0-3.675 3.68L7.462 6.46 4.793 3.793a1 1 0 0 1-.293-.707v-.071a1 1 0 0 0-.419-.814L1 0Zm9.646 10.646a.5.5 0 0 1 .708 0l2.914 2.915a.5.5 0 0 1-.707.707l-2.915-2.914a.5.5 0 0 1 0-.708ZM3 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026L3 11Z" />
                             </svg>
-                        報修申請
+                            報修申請
                         </a>
                     </li>
-EOT;
-                    }
-                    ?>
                     <?php
-                    //所有人：可顯示"首頁"、"留言板"
+                    //
                     if (isset($_SESSION['login_identity'])) {
                         //具有老師身分：查看指導班級的學生資料
                         if ($_SESSION["login_identity"] == "老師") {
-                            print <<< EOT
-                                    <li class="nav-item">
-                                         <a class="nav-link" href="fix" id="fix">
-                                             <svg xmlns="http://www.w3.org/2000/svg" width="18"  fill="currentColor" class="bi bi-person-lines-fill" viewBox="0 0 16 16">
-                                                <path fill-rule="evenodd" d="M10 1.5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-1Zm-5 0A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5v1A1.5 1.5 0 0 1 9.5 4h-3A1.5 1.5 0 0 1 5 2.5v-1Zm-2 0h1v1A2.5 2.5 0 0 0 6.5 5h3A2.5 2.5 0 0 0 12 2.5v-1h1a2 2 0 0 1 2 2V14a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V3.5a2 2 0 0 1 2-2Z"/>
-                                             </svg>
-                                            報修申請
-                                         </a>
-                                    </li>
-                                    EOT;
                             print <<< EOT
                                     <li class="nav-item">
                                         <a class="nav-link" href="teacher_view_class" id='class_list'>
