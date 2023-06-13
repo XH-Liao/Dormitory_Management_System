@@ -108,6 +108,5 @@ if (mysqli_query($link, $SQL)) {
     else if ($identity == "老師")
         echo "<meta http-equiv='Refresh' content='0; url=teacher_list'>";
 } else {
-    echo "<script type='text/javascript'> alert('註冊失敗'); </script>";
-    echo "<meta http-equiv='Refresh' content='0; url=enroll'>";
+    echo "<script type='text/javascript'> alert('註冊失敗'); history.back(); </script>";
 }
