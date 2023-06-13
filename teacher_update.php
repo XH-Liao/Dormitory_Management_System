@@ -60,7 +60,7 @@ $row = mysqli_fetch_assoc($result);
             <div class="mb-3 row">
                 <label class="col-sm-2 col-form-label">指導班級</label>
                 <div class="col-sm-10">
-                    <input type="text" name="班級" class="form-control" required value="<?php echo $row['班級編號'] ?>">
+                    <input type="text" name="班級" class="form-control" value="<?php echo $row['班級編號'] ?>">
                 </div>
             </div>
             <div class="mb-3 row">

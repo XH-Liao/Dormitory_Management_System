@@ -21,7 +21,7 @@ if (mysqli_num_rows($result) > 0) {
     //Check：密碼正確
     if (!password_verify($uPwd, $row["密碼"])) {
         $_SESSION['msg'] = "帳號或密碼錯誤！";
-        header('Location: login');
+        echo "<script type='text/javascript'> history.back(); </script>";
         exit();
     }
     //設定登入身分、姓名
@@ -51,7 +51,7 @@ if (mysqli_num_rows($result) > 0) {
         //Check：密碼正確
         if (!password_verify($uPwd, $row["密碼"])) {
             $_SESSION['msg'] = "帳號或密碼錯誤！";
-            header('Location: login');
+            echo "<script type='text/javascript'> history.back(); </script>";
             exit();
         }
         //設定登入身分、姓名
@@ -76,7 +76,7 @@ if (mysqli_num_rows($result) > 0) {
             //Check：密碼正確
             if (!password_verify($uPwd, $row["密碼"])) {
                 $_SESSION['msg'] = "帳號或密碼錯誤！";
-                header('Location: login');
+                echo "<script type='text/javascript'> history.back(); </script>";
                 exit();
             }
             //設定登入身分、姓名
@@ -93,7 +93,7 @@ if (mysqli_num_rows($result) > 0) {
             }
         } else {            //"此帳號不存在"
             $_SESSION['msg'] = "此帳號不存在！";
-            header('Location: login');
+            echo "<script type='text/javascript'> history.back(); </script>";
             exit();
         }
     }
