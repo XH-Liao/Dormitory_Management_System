@@ -321,7 +321,7 @@ EOT;
                             </a>
                         </li>
 EOT;
-                } else if ($_SESSION['login_identity'] == "學生" || $_SESSION['login_identity'] == "舍監"|| $_SESSION['login_identity'] == "老師") {
+                } else if ($_SESSION['login_identity'] == "學生" || $_SESSION['login_identity'] == "舍監") {
                     print <<<EOT
                         <li class="nav-item dropdown">
                             <a href="#" class="nav-link active dropdown-toggle" role="button" data-bs-toggle="dropdown">
