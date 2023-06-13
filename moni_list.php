@@ -82,8 +82,6 @@ $result = mysqli_query($link, $SQL);
                 } while ($row2);
 
                 echo "</td>";
-                echo "<td><div class='btn-group'>";
-                echo "</div></td>";
                 echo "</tr>";
                 //$row['房間號碼'] .
             }
